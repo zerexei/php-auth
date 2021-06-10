@@ -24,6 +24,5 @@
     </div>
   </form>
 </div>
-</div>
 
-<?php includes('header') ?>
+<?php includes('footer') ?>
