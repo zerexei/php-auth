@@ -49,6 +49,23 @@ if (!function_exists("includes")) {
 }
 
 /**
+ * Create method field
+ *
+ * @return string
+ */
+
+if (!function_exists('method_field')) {
+    function method_field(string $method)
+    {
+        return '<input
+            type="hidden"
+            name="_method"
+            value="' . e($method) . '"
+        >';
+    }
+}
+
+/**
  * get current time
  */
 if (!function_exists("now")) {

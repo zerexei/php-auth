@@ -16,20 +16,23 @@ class LoginController
         ]);
 
         $user = new User();
-        $result = $user->select($attributes['email'], 'email');
+        $fetchedUser = $user->select($attributes['email'], 'email');
 
         // validate email
-        if (!$result) {
+        if (!$fetchedUser) {
             $_SESSION['errors'] = ['auth' => 'email or password didn\'t match'];
             return redirect()->back();
         }
 
         // validate password
-        if ($attributes['password'] !== $result->password) {
+        if ($attributes['password'] !== $fetchedUser->password) {
             $_SESSION['errors'] = ['auth' => 'email or password didn\'t match'];
             return redirect()->back();
         }
 
-        return view('dashboard');
+        $user = $user->update($fetchedUser->id, ['login_at' => now()]);
+
+        $_SESSION['auth'] = ['email' => $fetchedUser->email];
+        return redirect('/php-auth/dashboard');
     }
 }

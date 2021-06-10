@@ -1,8 +1,10 @@
 <?php
 
 use App\Controllers\Auth\LoginController;
+use App\Controllers\Auth\LogoutController;
 use Harf\Arr;
 use App\Controllers\Auth\RegisterController;
+use App\Models\User;
 
 $router->setHost('php-auth');
 
@@ -15,9 +17,14 @@ $router->post('/register', [RegisterController::class, 'register']);
 $router->get('/login', fn () => view('auth.login'));
 $router->post('/login', [LoginController::class, 'login']);
 
-$router->get('/logout', function () {
-    // destroy sessions
-    return view('welcome');
+$router->delete('/logout/:int', [LogoutController::class, 'logout']);
+
+
+$router->get('/dashboard', function () {
+    if (!$_SESSION['auth']) {
+        return redirect('/php-auth/register');
+    }
+    return view('dashboard');
 });
 
 // TODO: Add csrf
