@@ -29,6 +29,8 @@
         <!-- LABEL -->
         <h2 class="mb-6 text-xl font-bold text-blue-400 text-center">Register</h2>
 
+        <?php includes('errors') ?>
+
         <form action="/php-auth/register" method="POST">
           <!-- USERNAME -->
           <div class="mb-6">

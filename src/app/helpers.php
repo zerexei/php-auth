@@ -36,6 +36,18 @@ if (!function_exists("view")) {
 }
 
 /**
+ * import include file
+ */
+if (!function_exists("includes")) {
+    function includes(string $path)
+    {
+        $path = str_replace('.', '/', e($path));
+        $realPath = "src/Views/includes/{$path}.php";
+        return require_once $realPath;
+    }
+}
+
+/**
  * die and dump
  */
 if (!function_exists("dd")) {
