@@ -1,16 +1,16 @@
 <?php
 
 use Harf\Arr;
+use App\Controllers\Auth\RegisterController;
 
 $router->setHost('php-auth');
 
 
 $router->get('/', fn () => view('welcome'));
 
-$router->get('/test', function () {
-    echo "Hello World!";
+$router->get('/register', fn () => view('auth.register'));
+$router->post('/register', [RegisterController::class, 'register']);
 
-    $result = Arr::find([1, 2, 3], 4);
-
-    die(var_dump($result));
-});
+// register
+// login
+// logout

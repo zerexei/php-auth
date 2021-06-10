@@ -34,3 +34,13 @@ if (!function_exists("view")) {
         return require_once $realPath;
     }
 }
+
+/**
+ * die and dump
+ */
+if (!function_exists("dd")) {
+    function dd(...$data)
+    {
+        die(var_dump(...$data));
+    }
+}
