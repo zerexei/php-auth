@@ -38,7 +38,7 @@
           <!-- PASSWORD -->
           <div class="mb-6">
             <label for="Password" class="block mb-1 text-sm font-bold text-gray-500">Password</label>
-            <input type="text" name="Password" placeholder="Password..." id="Password" class="w-full p-2 text-gray-700 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+            <input type="text" name="password" placeholder="Password..." id="Password" class="w-full p-2 text-gray-700 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
           </div>
           <!-- CONFIRM PASSWORD -->
           <div class="mb-6">
