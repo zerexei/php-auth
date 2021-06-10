@@ -5,9 +5,9 @@
 </div>
 
 <div>
-<?php includes('errors') ?>
+  <?php includes('errors') ?>
   <!-- RESET PASSWORD -->
-  <a href="/php-auth/password/1/reset">reset password</a>
+  <a href="/php-auth/password/<?php echo $_SESSION['auth'] ?>/reset">reset password</a>
 </div>
 
 <div>

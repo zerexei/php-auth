@@ -21,6 +21,7 @@ $router->post('/login', [LoginController::class, 'login']);
 
 // UPDATE PASSWORD
 $router->get('/password/:int/reset', [PasswordResetController::class, 'passwordResetForm']);
+$router->put('/password/reset', [PasswordResetController::class, 'passwordReset']);
 
 // LOGOUT
 $router->delete('/logout/:int', [LogoutController::class, 'logout']);

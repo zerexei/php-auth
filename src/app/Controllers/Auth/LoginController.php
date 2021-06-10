@@ -32,7 +32,7 @@ class LoginController
 
         $user->update($fetchedUser->id, ['login_at' => now()]);
 
-        $_SESSION['auth'] = true;
+        $_SESSION['auth'] = $fetchedUser->id;
         return redirect('/php-auth/dashboard');
     }
 

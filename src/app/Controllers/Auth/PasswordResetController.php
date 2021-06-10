@@ -7,6 +7,30 @@ use \App\Models\User;
 
 class PasswordResetController
 {
+
+    public function passwordReset()
+    {
+        $request = new Request();
+        $attributes = $request->validate([
+            'password' => ['required', 'min:8', 'max:255', 'confirm']
+        ]);
+
+        $user = new User();
+        $fetchedUser = $user->select($request->id);
+
+        if ($request->old_password !== $fetchedUser->password) {
+            $_SESSION['errors'] = ['password' => 'old password didn\'t match'];
+            return redirect()->back();
+        }
+
+        $x = $user->update($fetchedUser->id, [
+            'password' => $attributes['password'],
+            'updated_at' => now()
+        ]);
+        
+        return redirect('/php-auth/dashboard');
+    }
+
     public function passwordResetForm($id)
     {
         if (!isset($_SESSION['auth']) && !$_SESSION['auth']) {

@@ -19,7 +19,9 @@ class RegisterController
         $user = new User();
         $user->insert($attributes);
 
-        $_SESSION['auth'] = true;
+        $auth = $user->select($attributes['email'], 'email');
+        $_SESSION['auth'] = $auth->id;
+
         return redirect('/php-auth/dashboard');
     }
 

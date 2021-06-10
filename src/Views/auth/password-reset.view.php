@@ -7,24 +7,24 @@
   <!-- ERROR FEEDBACK -->
   <?php includes('errors') ?>
 
-  <form action="/php-auth/password" method="POST">
+  <form action="/php-auth/password/reset" method="POST">
     <?php echo method_field('PUT') ?>
     <input type="hidden" name="id" value="<?php echo $user->id ?>">
 
     <!-- OLD PASSWORD -->
     <div class="mb-6">
-      <label for="Password" class="block mb-1 text-sm font-bold text-gray-500">Password</label>
-      <input type="text" name="old_password" placeholder="Password..." id="Password" class="w-full p-2 text-gray-700 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+      <label for="Password" class="block mb-1 text-sm font-bold text-gray-500">Old password</label>
+      <input type="password" name="old_password" placeholder="Old oassword..." id="Password" class="w-full p-2 text-gray-700 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
     </div>
     <!-- NEW PASSWORD -->
     <div class="mb-6">
-      <label for="Password" class="block mb-1 text-sm font-bold text-gray-500">Password</label>
-      <input type="text" name="password" placeholder="Password..." id="Password" class="w-full p-2 text-gray-700 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+      <label for="Password" class="block mb-1 text-sm font-bold text-gray-500">New password</label>
+      <input type="password" name="password" placeholder="Password..." id="Password" class="w-full p-2 text-gray-700 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
     </div>
     <!-- CONFIRM NEW PASSWORD -->
     <div class="mb-6">
-      <label for="password_confirmation" class="block mb-1 text-sm font-bold text-gray-500">Confirm password</label>
-      <input type="text" name="password_confirmation" placeholder="confirm password..." id="password_confirmation" class="w-full p-2 text-gray-700 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+      <label for="password_confirmation" class="block mb-1 text-sm font-bold text-gray-500">Confirm new password</label>
+      <input type="password" name="password_confirmation" placeholder="confirm password..." id="password_confirmation" class="w-full p-2 text-gray-700 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
     </div>
     <!-- SUBMIT -->
     <div class="mb-6">
