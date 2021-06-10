@@ -15,7 +15,16 @@ $router->post('/register', [RegisterController::class, 'register']);
 $router->get('/login', fn () => view('auth.login'));
 $router->post('/login', [LoginController::class, 'login']);
 
+$router->get('/logout', function () {
+    // destroy sessions
+    return view('welcome');
+});
+
 // TODO: Add csrf
-// // register
-// login
-// logout
+// cookie based session
+// reset passowrd
+// forgot password
+// verify email
+// save login datetime
+// save logout datetime
+// save password update datetime
