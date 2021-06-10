@@ -37,8 +37,5 @@ $router->get('/dashboard', function () {
     return view('dashboard');
 });
 
-// TODO: Add csrf
-// reset passowrd
 // forgot password
 // verify email
-// save password update datetime
