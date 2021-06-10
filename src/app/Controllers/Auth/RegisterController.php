@@ -14,9 +14,11 @@ class RegisterController
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8', 'max:255', 'confirm']
         ]);
+        $attributes['login_at'] = now();
 
         $user = new User();
-        $result = $user->insert($attributes);
-        dd($result);
+        $user->insert($attributes);
+
+        return view('dashboard');
     }
 }

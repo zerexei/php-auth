@@ -49,6 +49,16 @@ if (!function_exists("includes")) {
 }
 
 /**
+ * get current time
+ */
+if (!function_exists("now")) {
+    function now(): string
+    {
+        return (new \DateTime())->format("Y-m-d H:i:s");
+    }
+}
+
+/**
  * die and dump
  */
 if (!function_exists("dd")) {
