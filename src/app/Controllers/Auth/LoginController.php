@@ -32,16 +32,13 @@ class LoginController
 
         $user->update($fetchedUser->id, ['login_at' => now()]);
 
-        $expire = time() + (60 * 30); // 30 mins
-        set_cookie('auth', true, $expire);
-
+        $_SESSION['auth'] = true;
         return redirect('/php-auth/dashboard');
     }
 
     public function loginForm()
     {
-        dd($_COOKIE);
-        if (isset($_COOKIE['auth']) && $_COOKIE['auth']) {
+        if (isset($_SESSION['auth']) && $_SESSION['auth']) {
             return redirect('/php-auth/dashboard');
         }
 

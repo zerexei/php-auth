@@ -21,9 +21,11 @@ $router->delete('/logout/:int', [LogoutController::class, 'logout']);
 
 
 $router->get('/dashboard', function () {
-    if (!isset($_COOKIE['auth'])) {
-        return redirect('/php-auth/register');
+
+    if (!isset($_SESSION['auth']) && !$_SESSION['auth']) {
+        return redirect('/php-auth/login');
     }
+
     return view('dashboard');
 });
 
