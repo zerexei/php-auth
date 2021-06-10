@@ -39,8 +39,9 @@ if (!function_exists("view")) {
  * import include file
  */
 if (!function_exists("includes")) {
-    function includes(string $path)
+    function includes(string $path, array $data = [])
     {
+        extract($data);
         $path = str_replace('.', '/', e($path));
         $realPath = "src/Views/includes/{$path}.php";
         return require_once $realPath;
