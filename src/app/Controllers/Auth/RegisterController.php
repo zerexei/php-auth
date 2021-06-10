@@ -25,6 +25,7 @@ class RegisterController
 
     public function registerForm()
     {
+        dd("hit");
         if (isset($_SESSION['auth']) && $_SESSION['auth']) {
             return redirect('/php-auth/dashboard');
         }
