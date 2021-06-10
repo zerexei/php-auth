@@ -8,6 +8,8 @@
   <?php includes('errors') ?>
 
   <form action="/php-auth/login" method="POST">
+
+  <?php echo csrf_field() ?>
     <!-- USERNAME -->
     <div class="mb-6">
       <label for="Email" class="block mb-1 text-sm font-bold text-gray-500">Email</label>

@@ -145,7 +145,7 @@ if (!function_exists('verifyCsrf')) {
         $matched = hash_equals($_SESSION['csrf_token'],  $hash);
 
         if ($expired || !$matched) {
-            $_SESSI['error'] = 'csrf token didnt match.';
+            $_SESSION['errors'] = ['csrf' => 'csrf token didnt match.'];
             return redirect()->back();
         };
 

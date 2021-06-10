@@ -10,6 +10,9 @@ class LoginController
     public function login()
     {
         $request = new Request();
+
+        verifyCsrf($request->_csrf);
+        
         $attributes = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8', 'max:255']
