@@ -19,6 +19,17 @@ class RegisterController
         $user = new User();
         $user->insert($attributes);
 
-        return view('dashboard');
+        $expire = time() + (60 * 60); // 30 mins
+        set_cookie('auth', true, $expire);
+        return redirect('/php-auth/dashboard');
+    }
+
+    public function registerForm()
+    {
+        if (isset($_COOKIE['auth']) || $_COOKIE['auth']) {
+            return redirect('/php-auth/dashboard');
+        }
+
+        return view('auth.register');
     }
 }

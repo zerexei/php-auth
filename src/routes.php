@@ -8,20 +8,20 @@ use App\Models\User;
 
 $router->setHost('php-auth');
 
-
 $router->get('/', fn () => view('welcome'));
 
-$router->get('/register', fn () => view('auth.register'));
+// REGISTER
+$router->get('/register', [RegisterController::class, 'registerForm']);
 $router->post('/register', [RegisterController::class, 'register']);
-
-$router->get('/login', fn () => view('auth.login'));
+// LOGIN
+$router->get('/login', [LoginController::class, 'loginForm']);
 $router->post('/login', [LoginController::class, 'login']);
-
+// LOGOUT
 $router->delete('/logout/:int', [LogoutController::class, 'logout']);
 
 
 $router->get('/dashboard', function () {
-    if (!$_SESSION['auth']) {
+    if (!isset($_COOKIE['auth'])) {
         return redirect('/php-auth/register');
     }
     return view('dashboard');
@@ -32,6 +32,4 @@ $router->get('/dashboard', function () {
 // reset passowrd
 // forgot password
 // verify email
-// save login datetime
-// save logout datetime
 // save password update datetime

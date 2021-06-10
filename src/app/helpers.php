@@ -74,6 +74,22 @@ if (!function_exists("now")) {
         return (new \DateTime())->format("Y-m-d H:i:s");
     }
 }
+/**
+ * create cookie
+ */
+if (!function_exists("set_cookie")) {
+    function set_cookie(string $name, string $value, int|null $expire = null): bool
+    {
+        $expire = $expire ?? time() + 60;
+
+        return setcookie(
+            name: $name,
+            value: $value,
+            expires_or_options: $expire,
+            path: "/php-auth",
+        );
+    }
+}
 
 /**
  * die and dump

@@ -16,7 +16,8 @@ class LogoutController
             throw new \Exception("User doesn't exists, please refresh the webage and try again");
         }
 
-        unset($_SESSION);
+        setcookie('auth', '', time() - 36000);
+        session_destroy();
 
         return redirect('/php-auth');
     }
