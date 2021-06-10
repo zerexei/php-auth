@@ -9,6 +9,9 @@ class LogoutController
 {
     public function logout($id)
     {
+        $request = new Request();
+        verifyCsrf($request->_csrf);
+        
         $user = new User;
         $user = $user->update($id, ['logout_at' => now()]);
 

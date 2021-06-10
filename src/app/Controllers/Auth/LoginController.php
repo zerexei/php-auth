@@ -10,7 +10,6 @@ class LoginController
     public function login()
     {
         $request = new Request();
-
         verifyCsrf($request->_csrf);
         
         $attributes = $request->validate([

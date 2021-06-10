@@ -11,6 +11,8 @@ class PasswordResetController
     public function passwordReset()
     {
         $request = new Request();
+        verifyCsrf($request->_csrf);
+        
         $attributes = $request->validate([
             'password' => ['required', 'min:8', 'max:255', 'confirm']
         ]);

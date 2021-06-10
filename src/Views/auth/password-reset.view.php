@@ -8,7 +8,9 @@
   <?php includes('errors') ?>
 
   <form action="/php-auth/password/reset" method="POST">
+    <?php echo csrf_field() ?>
     <?php echo method_field('PUT') ?>
+
     <input type="hidden" name="id" value="<?php echo $user->id ?>">
 
     <!-- OLD PASSWORD -->
