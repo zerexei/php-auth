@@ -159,6 +159,20 @@ if (!function_exists('verifyCsrf')) {
 }
 
 /**
+ * hash password
+ */
+if (!function_exists("pwd_hash")) {
+    function pwd_hash(string $password): string|false
+    {
+        $hashed = password_hash($password, PASSWORD_DEFAULT);
+        while (password_needs_rehash($hashed, PASSWORD_DEFAULT)) {
+            $hashed = password_hash($password, PASSWORD_DEFAULT);
+        }
+        return $hashed;
+    }
+}
+
+/**
  * die and dump
  */
 if (!function_exists("dd")) {

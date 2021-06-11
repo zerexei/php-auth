@@ -15,6 +15,8 @@
   <button onclick="document.querySelector('#logout').submit()">Logout</button>
   <form id="logout" action="/php-auth/logout/1" method="POST">
     <?php echo method_field('DELETE') ?>
+    <?php echo csrf_field() ?>
+    
   </form>
   <?php includes('footer') ?>
 </div>

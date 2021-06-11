@@ -19,6 +19,8 @@ class RegisterController
         $attributes['login_at'] = now();
 
         $user = new User();
+        $attributes['password'] = pwd_hash($attributes['password']);
+
         $user->insert($attributes);
 
         $auth = $user->select($attributes['email'], 'email');
@@ -29,7 +31,6 @@ class RegisterController
 
     public function registerForm()
     {
-        dd("hit");
         if (isset($_SESSION['auth']) && $_SESSION['auth']) {
             return redirect('/php-auth/dashboard');
         }
