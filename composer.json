@@ -3,18 +3,19 @@
     "description": "simple authentication",
     "type": "project",
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/app",
-            "Database\\": "src/Database"
-        }
-    },
     "authors": [
         {
             "name": "Angelo Arcillas",
             "email": "angeloarcillas64@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/app",
+            "Database\\": "src/Database"
+        }
+    },
+    "optimize-autoloader": true,
     "require": {
         "zerexei/simplerouter": "^2.2",
         "zerexei/reet-harf": "^0.1.0"
