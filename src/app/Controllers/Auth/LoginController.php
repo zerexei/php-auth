@@ -11,7 +11,7 @@ class LoginController
     {
         $request = new Request();
         verifyCsrf($request->_csrf);
-        
+
         $attributes = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required', 'min:8', 'max:255']
@@ -27,7 +27,7 @@ class LoginController
         }
 
         // validate password
-        if ($attributes['password'] !== $fetchedUser->password) {
+        if (!password_verify($attributes['password'], $fetchedUser->password)) {
             $_SESSION['errors'] = ['auth' => 'email or password didn\'t match'];
             return redirect()->back();
         }
