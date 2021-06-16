@@ -5,7 +5,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "REET": "src/"
+            "App\\": "src/app",
+            "Database\\": "src/Database"
         }
     },
     "authors": [
@@ -14,5 +15,8 @@
             "email": "angeloarcillas64@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "zerexei/simplerouter": "^2.2",
+        "zerexei/reet-harf": "^0.1.0"
+    }
 }
