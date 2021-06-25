@@ -10,12 +10,12 @@
 
 <p align="center">
   <a href="https://lbesson.mit-license.org/">
-    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="React Native is released under the MIT license." />
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT license." />
   </a>
   <a href="https://github.com/zerexei/">
     <img src="https://img.shields.io/badge/Version-1.0-blue.svg" alt="Current package version." />
   </a>
   <a href="#">
-    <img src="https://img.shields.io/badge/Pull_Request-YES-blue.svg" alt="PRs welcome!" />
+    <img src="https://img.shields.io/badge/Pull_Request-YES-blue.svg" alt="Feel free to contribute." />
   </a>
 </p>
